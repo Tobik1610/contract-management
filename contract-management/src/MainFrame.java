@@ -9,7 +9,7 @@ public class MainFrame extends Frame{
 		this.width = width;
 		this.height = height;
 		
-		setSize(width, height);
+		setSize(this.width, this.height);
 		setTitle(TITLE);
 	}
 	
