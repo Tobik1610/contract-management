@@ -7,27 +7,34 @@ import javafx.stage.Stage;
  
 public class App extends Application{
  
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-	primaryStage.setTitle("My First Java FX App");
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
 
-	StackPane next = new StackPane();
-    Scene nextScene = new Scene(next, 800, 600);
-    Text nextText = new Text("Next Scene");
-    next.getChildren().add(nextText);
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// Titel des Fensters
+		primaryStage.setTitle("My First Java FX App");
+
+		// Erstellen der zweiten Seite
+		StackPane next = new StackPane();
+		Scene nextScene = new Scene(next, 800, 600);
+		Text nextText = new Text("Next Scene");
+		next.getChildren().add(nextText);
     
-    Button btn = new Button("Change Scene");
-    btn.setOnAction((e) -> primaryStage.setScene(nextScene));
-
-	StackPane root = new StackPane();
-    root.getChildren().add(btn);
- 
-    Scene mainScene = new Scene(root, 800, 600);
+		// Erstellen der Hauptseite
+		Button btn = new Button("Change Scene");
+		btn.setOnAction((e) -> primaryStage.setScene(nextScene));
+		StackPane root = new StackPane();
+		root.getChildren().add(btn);
+		Scene mainScene = new Scene(root, 800, 600);
    
-    primaryStage.setScene(mainScene);
-    primaryStage.show();
-  }
- static void main(String[] args) {
-    launch(args);
-  }
+		// Setzten der Startseite
+		primaryStage.setScene(mainScene);
+		primaryStage.show();
+	}
+
 }
+
