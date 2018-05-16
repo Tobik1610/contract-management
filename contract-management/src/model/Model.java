@@ -1,8 +1,8 @@
 package model;
 
 public class Model {
-	private String title = "Auch Alex ist nur ein Mensch";
-	private int test = 465464;
+	private String title = "Auch hier teste ich nur";
+	private int test = 11000;
 	
 	public String getTitle(){
 		return title;
