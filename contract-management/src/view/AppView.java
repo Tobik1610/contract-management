@@ -1,5 +1,6 @@
 package view;
 import controller.Controller;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -9,15 +10,17 @@ import model.Model;
 public class AppView{
  
 	private Model model;
+	private Controller controller;
 
 	public AppView(Stage primaryStage) {
 		//Beziehen des Models
 		model = new Model();
+		controller = new Controller(this, model);
 		
 		// Titel des Fensters
 		primaryStage.setTitle(model.getTitle());
-		Button btn = new Button();
-		btn.setOnAction(new Controller(this));
+		Button btn = new Button(model.getBtn1());
+		btn.addEventHandler(ActionEvent.ACTION, controller);
 		
 		// Erstellen der Hauptseite
 		StackPane root = new StackPane();
