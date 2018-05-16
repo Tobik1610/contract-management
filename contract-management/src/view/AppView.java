@@ -1,34 +1,34 @@
 package view;
-import javafx.application.Application;
+import controller.Controller;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Model;
  
-public class AppView extends Application{
+public class AppView{
  
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
+	private Model model;
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public AppView(Stage primaryStage) {
+		//Beziehen des Models
+		model = new Model();
+		
 		// Titel des Fensters
-		primaryStage.setTitle("My First Java FX App");
-    
+		primaryStage.setTitle(model.getTitle());
+		Button btn = new Button();
+		btn.setOnAction(new Controller(this));
+		
 		// Erstellen der Hauptseite
 		StackPane root = new StackPane();
 		Scene mainScene = new Scene(root, 800, 600);
-   
+		root.getChildren().add(btn);
+		
 		// Setzten der Startseite
 		primaryStage.setScene(mainScene);
 		primaryStage.show();
-		
-		//Hallo Welt
 	}
+	
 
 }
 
