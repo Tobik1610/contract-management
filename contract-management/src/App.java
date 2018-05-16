@@ -34,6 +34,8 @@ public class App extends Application{
 		// Setzten der Startseite
 		primaryStage.setScene(mainScene);
 		primaryStage.show();
+		
+		//Hallo Welt
 	}
 
 }
