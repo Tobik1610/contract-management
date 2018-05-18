@@ -1,6 +1,8 @@
 
+import controller.MainVC;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import model.Model;
 import view.*;
 
 public class Main extends Application{
@@ -12,7 +14,12 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		new AppView(primaryStage);
+		//Model initialisieren
+		Model model = new Model(primaryStage); 
+		
+		//Ersten Controller aufrufen
+		MainVC mainVC = new MainVC(model);
+		mainVC.show();
 	}
 
 }

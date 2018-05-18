@@ -1,11 +1,18 @@
 package model;
 
+import javafx.stage.Stage;
+
 public class Model {
+	private Stage primaryStage = null;
 	private String title = "Vertragsverwaltung";
 	private int width = 800;
 	private int heigth = 600;
 	private String message = "Button pressed";
 	private String btn1 = "Press Me!";
+	
+	public Model(Stage primaryStage) {
+		this.setPrimaryStage(primaryStage);
+	}
 	
 	public String getTitle(){
 		return title;
@@ -45,5 +52,13 @@ public class Model {
 
 	public void setBtn1(String btn1) {
 		this.btn1 = btn1;
+	}
+
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
 	}
 }
