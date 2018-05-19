@@ -29,16 +29,16 @@ public class MainVC{
 		view.show(model.getPrimaryStage());
 		
 	} 
-}
 
-class btnEventHandler implements EventHandler<ActionEvent>{
 
-	@Override
-	public void handle(ActionEvent event) {
-		System.out.println("Button gedrückt");
-		
-	}
-
+	class btnEventHandler implements EventHandler<ActionEvent>{
 	
+		@Override
+		public void handle(ActionEvent event) {
+			view.setSceneSize(model.getPrimaryStage(), 1000, 800);
+		
+		}
+
+	}
      
  }

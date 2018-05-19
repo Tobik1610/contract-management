@@ -24,6 +24,11 @@ public class MainView{
 		this.title = title;
 	}
 	
+	public void setSceneSize(Stage stage, int x, int y) {
+		stage.setHeight(y);
+		stage.setWidth(x);
+	}
+	
 	public Button getBtn() {
 		return btn;
 	}
@@ -36,6 +41,7 @@ public class MainView{
 		stage.setResizable(true);
 		stage.setTitle(title);
 		stage.setScene(scene);
+		stage.setMaximized(true);
 		stage.show();
 		
 	}
