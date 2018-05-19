@@ -25,6 +25,8 @@ public class MainVC{
 		//Button Funktion implementieren
 		view.getBtn1().setOnAction(new btn1EventHandler());  
 		view.getBtn2().setOnAction(new btn2EventHandler()); 
+		
+		view.getBtn2().setDisable(true);
 	}
 
 	public void show() {
@@ -41,6 +43,8 @@ public class MainVC{
 			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
 			model.setWidth(x);
 			model.setHeigth(y);
+			view.getBtn1().setDisable(true);
+			view.getBtn2().setDisable(false);
 		}
 	}
 	
@@ -53,6 +57,8 @@ public class MainVC{
 			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
 			model.setWidth(x);
 			model.setHeigth(y);
+			view.getBtn1().setDisable(false);
+			view.getBtn2().setDisable(true);
 		}
 	}
      
