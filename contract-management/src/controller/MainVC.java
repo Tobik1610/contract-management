@@ -3,13 +3,13 @@ package controller;
 import model.Model;
 import view.MainView;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class MainVC{
 
 	private MainView view; 
 	private Model model; 
+	
 	     
 	public MainVC( Model model){ 
 		this.model = model; 
@@ -19,26 +19,41 @@ public class MainVC{
 		view.setTitle(model.getTitle());
 		
 		//Button Text setzen
-		view.setBtnTxt(model.getBtn1());
+		view.setBtn1Txt(model.getBtn1());
+		view.setBtn2Txt(model.getBtn2());
 		
 		//Button Funktion implementieren
-		view.getBtn().setOnAction(new btnEventHandler());  
+		view.getBtn1().setOnAction(new btn1EventHandler());  
+		view.getBtn2().setOnAction(new btn2EventHandler()); 
 	}
 
 	public void show() {
 		view.show(model.getPrimaryStage());
-		
 	} 
 
 
-	class btnEventHandler implements EventHandler<ActionEvent>{
+	class btn1EventHandler implements EventHandler<ActionEvent>{
 	
 		@Override
 		public void handle(ActionEvent event) {
-			view.setSceneSize(model.getPrimaryStage(), 1000, 800);
-		
+			double x = model.getPrimaryStage().getWidth();
+			double y = model.getPrimaryStage().getHeight();
+			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
+			model.setWidth(x);
+			model.setHeigth(y);
 		}
-
+	}
+	
+	class btn2EventHandler implements EventHandler<ActionEvent>{
+		
+		@Override
+		public void handle(ActionEvent event) {
+			double x = model.getPrimaryStage().getWidth();
+			double y = model.getPrimaryStage().getHeight();
+			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
+			model.setWidth(x);
+			model.setHeigth(y);
+		}
 	}
      
  }
