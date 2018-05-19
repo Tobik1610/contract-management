@@ -25,6 +25,8 @@ public class MainVC{
 		//Button Funktion implementieren
 		view.getBtn1().setOnAction(new btn1EventHandler());  
 		view.getBtn2().setOnAction(new btn2EventHandler()); 
+		
+		view.getBtn2().setDisable(true);
 	}
 
 	public void show() {
@@ -36,11 +38,17 @@ public class MainVC{
 	
 		@Override
 		public void handle(ActionEvent event) {
+			//Speichern der derzeitigen Fenstergröße
 			double x = model.getPrimaryStage().getWidth();
 			double y = model.getPrimaryStage().getHeight();
+			//Wechseln auf Fenstergröße welche im Model gespeichert ist
 			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
+			//Alte Fenstergröße ins Model schreiben
 			model.setWidth(x);
 			model.setHeigth(y);
+			//Den jeweils anderen Button disablen
+			view.getBtn1().setDisable(true);
+			view.getBtn2().setDisable(false);
 		}
 	}
 	
@@ -48,11 +56,17 @@ public class MainVC{
 		
 		@Override
 		public void handle(ActionEvent event) {
+			//Speichern der derzeitigen Fenstergröße
 			double x = model.getPrimaryStage().getWidth();
 			double y = model.getPrimaryStage().getHeight();
+			//Wechseln auf Fenstergröße welche im Model gespeichert ist
 			view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
+			//Alte Fenstergröße ins Model schreiben
 			model.setWidth(x);
 			model.setHeigth(y);
+			//Den jeweils anderen Button disablen
+			view.getBtn1().setDisable(false);
+			view.getBtn2().setDisable(true);
 		}
 	}
      

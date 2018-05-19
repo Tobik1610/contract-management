@@ -17,14 +17,14 @@ public class MainView{
 	private HBox hbox;
 
 	public MainView() {
-		this.pane = new StackPane();
-		this.scene = new Scene(pane, 800, 600);
-		this.btn1 = new Button();
-		this.btn2 = new Button();
+		pane = new StackPane();
+		scene = new Scene(pane, 800, 600);
+		btn1 = new Button();
+		btn2 = new Button();
 		
 		//Buttongruppe
-		this.hbox = new HBox(10);
-		hbox.setAlignment(Pos.TOP_LEFT);
+		hbox = new HBox(10);
+		hbox.setAlignment(Pos.CENTER);
 		hbox.getChildren().add(btn1);
 		hbox.getChildren().add(btn2);
 		pane.getChildren().add(hbox);
