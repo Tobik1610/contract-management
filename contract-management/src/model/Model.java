@@ -5,10 +5,11 @@ import javafx.stage.Stage;
 public class Model {
 	private Stage primaryStage = null;
 	private String title = "Vertragsverwaltung";
-	private int width = 800;
-	private int heigth = 600;
+	private double width = 1200;
+	private double heigth = 600;
 	private String message = "Button pressed";
 	private String btn1 = "Press Me!";
+	private String btn2 = "Press Me Too!";
 	
 	public Model(Stage primaryStage) {
 		this.setPrimaryStage(primaryStage);
@@ -22,19 +23,19 @@ public class Model {
 		this.title = title;
 	}
 
-	public int getHeigth() {
+	public double getHeigth() {
 		return heigth;
 	}
 
-	public void setHeigth(int heigth) {
+	public void setHeigth(double heigth) {
 		this.heigth = heigth;
 	}
 
-	public int getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(double width) {
 		this.width = width;
 	}
 
@@ -60,5 +61,13 @@ public class Model {
 
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
+	}
+
+	public String getBtn2() {
+		return btn2;
+	}
+
+	public void setBtn2(String btn2) {
+		this.btn2 = btn2;
 	}
 }
