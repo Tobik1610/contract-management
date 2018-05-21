@@ -1,7 +1,9 @@
 package model;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import Main.Contract;
 
@@ -11,13 +13,15 @@ public class Model {
 	private double width = 1200;
 	private double heigth = 600;
 	
-	private ArrayList<Contract> contracts;
+	private ObservableList<Contract> contracts =FXCollections.observableArrayList();
 	private String message = "Button pressed";
-	private String btn1 = "Press Me!";
+	private String btn1 = "Neuer Vertrag";
 	private String btn2 = "Press Me Too!";
 	
 	public Model(Stage primaryStage) {
 		this.setPrimaryStage(primaryStage);
+		
+		contracts.add(new Contract("Test", "Das ist ein Test Vertrag", LocalDate.now()));
 	}
 	
 	public String getTitle(){
@@ -76,11 +80,11 @@ public class Model {
 		this.btn2 = btn2;
 	}
 
-	public ArrayList<Contract> getContracts() {
+	public ObservableList<Contract> getContracts() {
 		return contracts;
 	}
 
-	public void setContracts(ArrayList<Contract> contracts) {
+	public void setContracts(ObservableList<Contract> contracts) {
 		this.contracts = contracts;
 	}
 }
