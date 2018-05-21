@@ -1,12 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+
 import javafx.stage.Stage;
+import Main.Contract;
 
 public class Model {
 	private Stage primaryStage = null;
 	private String title = "Vertragsverwaltung";
 	private double width = 1200;
 	private double heigth = 600;
+	
+	private ArrayList<Contract> contracts;
 	private String message = "Button pressed";
 	private String btn1 = "Press Me!";
 	private String btn2 = "Press Me Too!";
@@ -69,5 +74,13 @@ public class Model {
 
 	public void setBtn2(String btn2) {
 		this.btn2 = btn2;
+	}
+
+	public ArrayList<Contract> getContracts() {
+		return contracts;
+	}
+
+	public void setContracts(ArrayList<Contract> contracts) {
+		this.contracts = contracts;
 	}
 }
