@@ -18,6 +18,9 @@ public class Model {
 	private String btn1 = "Neuer Vertrag";
 	private String btn2 = "Press Me Too!";
 	
+	//Add View
+	private String addViewTitle = "Neuer Vertrag";
+	
 	public Model(Stage primaryStage) {
 		this.setPrimaryStage(primaryStage);
 		
@@ -86,5 +89,13 @@ public class Model {
 
 	public void setContracts(ObservableList<Contract> contracts) {
 		this.contracts = contracts;
+	}
+
+	public String getAddViewTitle() {
+		return addViewTitle;
+	}
+
+	public void setAddViewTitle(String addViewTitle) {
+		this.addViewTitle = addViewTitle;
 	}
 }

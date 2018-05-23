@@ -43,9 +43,10 @@ public class MainVC{
 	
 		@Override
 		public void handle(ActionEvent event) {
-			model.getContracts().add(new Contract("test", "Beschreibung", LocalDate.now()));
-			view.gettView().refresh();
-//			new AddVC(model).show();
+//			model.getContracts().add(new Contract("test", "Beschreibung", LocalDate.now()));
+//			view.gettView().refresh();
+			new AddVC(model).show();;
+			
 			
 		}
 	}
