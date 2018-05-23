@@ -7,6 +7,8 @@ import model.Model;
 
 public class Main extends Application{
 
+	private Model model;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -15,11 +17,23 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		
 		//Model initialisieren
-		Model model = new Model(primaryStage); 
+		this.model = new Model(primaryStage); 
+		
+		//Reader initialisieren
+//		new Reader(model);
 		
 		//Ersten Controller aufrufen
 		MainVC mainVC = new MainVC(model);
 		mainVC.show();
+	}
+	
+	@Override
+	public void stop() throws Exception {
+
+		//Writer initialisieren
+//		new Writer(model);
+		
+		super.stop();
 	}
 
 }
