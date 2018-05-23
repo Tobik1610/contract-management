@@ -33,6 +33,7 @@ public class MainView{
 		pane = new GridPane();
 		pane.setAlignment(Pos.BASELINE_LEFT);
 		pane.setVgap(4);
+		pane.setHgap(10);
 		pane.setPadding(new Insets(2, 2, 2, 2));
 		scene = new Scene(pane, 800, 600);
 		btn1 = new Button();

@@ -11,9 +11,12 @@ public class AddVC {
 	public AddVC(Model model) {
 		this.model = model;
 		this.view = new AddView();
+		
+		view.setTitle(model.getAddViewTitle());
+		
 	}
 	
 	public void show() {
-		view.show(model.getPrimaryStage());
+		view.show();
 	} 
 }
