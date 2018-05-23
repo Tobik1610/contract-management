@@ -1,30 +1,39 @@
 package model;
 
-import java.time.LocalDate;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
+
+import java.io.Serializable;
+
 import Main.Contract;
 
-public class Model {
+public class Model implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	//Data
 	private Stage primaryStage = null;
-	private String title = "Vertragsverwaltung";
+	private ObservableList<Contract> contracts =FXCollections.observableArrayList();
 	private double width = 1200;
 	private double heigth = 600;
 	
-	private ObservableList<Contract> contracts =FXCollections.observableArrayList();
+	//App
+	private String title = "Vertragsverwaltung";
+	
+	//Main View
 	private String message = "Button pressed";
 	private String btn1 = "Neuer Vertrag";
 	private String btn2 = "Press Me Too!";
 	
 	//Add View
 	private String addViewTitle = "Neuer Vertrag";
+	private String addViewText1 = "Vertragsname";
+	private String addViewText2 = "Vertragsbeschreibung";
+	private String addViewText3 = "Ablaufdatum";
 	
 	public Model(Stage primaryStage) {
 		this.setPrimaryStage(primaryStage);
-		
-		contracts.add(new Contract("Test", "Das ist ein Test Vertrag", LocalDate.now()));
 	}
 	
 	public String getTitle(){
@@ -97,5 +106,29 @@ public class Model {
 
 	public void setAddViewTitle(String addViewTitle) {
 		this.addViewTitle = addViewTitle;
+	}
+
+	public String getAddViewText1() {
+		return addViewText1;
+	}
+
+	public void setAddViewText1(String addViewText1) {
+		this.addViewText1 = addViewText1;
+	}
+
+	public String getAddViewText2() {
+		return addViewText2;
+	}
+
+	public void setAddViewText2(String addViewText2) {
+		this.addViewText2 = addViewText2;
+	}
+
+	public String getAddViewText3() {
+		return addViewText3;
+	}
+
+	public void setAddViewText3(String addViewText3) {
+		this.addViewText3 = addViewText3;
 	}
 }
