@@ -9,7 +9,10 @@ import Main.Contract;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class MainVC{
 
@@ -21,14 +24,23 @@ public class MainVC{
 		this.model = model; 
 		this.view = new MainView();
 		
-		//Titel setzten
+		//Titel und Größe setzten
 		view.setTitle(model.getTitle());
+//		view.setSceneSize(model.getPrimaryStage(), model.getWidth(), model.getHeigth());
 		
 		//Button Text setzen
-		view.setBtn1Txt(model.getBtn1());
+		view.setBtnAddTxt(model.getBtnAdd());
+		view.setBtnChangeTxt(model.getBtnChange());
+		view.setBtnDeleteTxt(model.getBtnDelete());
+		
+		//Button Icon setzen
+//		view.getBtnSetting().setMaxSize(20, 20);
+//		view.getBtnSetting().setGraphic(new ImageView(model.getBtnSettingIcon()));
 		
 		//Button Funktion implementieren
-		view.getBtn1().setOnAction(new btn1EventHandler());  
+		view.getBtnAdd().setOnAction(new btnAddEventHandler());  
+		view.getBtnChange().setOnAction(new btnChangeEventHandler()); 
+		view.getBtnDelete().setOnAction(new btnDeleteEventHandler()); 
 		
 		//lView initialisieren
 		view.gettView().setItems(model.getContracts());
@@ -39,11 +51,31 @@ public class MainVC{
 	} 
 
 
-	class btn1EventHandler implements EventHandler<ActionEvent>{
+	class btnAddEventHandler implements EventHandler<ActionEvent>{
 	
 		@Override
 		public void handle(ActionEvent event) {
 			new AddVC(model).show();
+		}
+	}
+	
+	class btnChangeEventHandler implements EventHandler<ActionEvent>{
+		
+		@Override
+		public void handle(ActionEvent event) {
+			if(view.gettView().getSelectionModel().getSelectedItem() != null) {
+				model.setSelectedContractIndex(view.gettView().getSelectionModel().getSelectedIndex());
+				new ChangeVC(model).show();
+			}
+		}
+	}
+	
+	class btnDeleteEventHandler implements EventHandler<ActionEvent>{
+		
+		@Override
+		public void handle(ActionEvent event) {
+			if(view.gettView().getSelectionModel().getSelectedItem() != null)
+				model.getContracts().remove(view.gettView().getSelectionModel().getSelectedIndex());
 		}
 	}
 	

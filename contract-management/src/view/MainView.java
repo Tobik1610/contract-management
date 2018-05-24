@@ -11,12 +11,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
  
 public class MainView{
@@ -24,9 +25,8 @@ public class MainView{
 	private Scene scene;
 	private GridPane pane;
 	private String title;
-	private Button btn1;
-	private Button btn2;
-	private VBox vBox;
+	private Button btnAdd, btnDelete, btnChange, btnSettings;
+	private HBox hBtnBox, hSettingBox;
 	private TableView<Contract> tView;
 
 	public MainView() {
@@ -35,14 +35,25 @@ public class MainView{
 		pane.setVgap(4);
 		pane.setHgap(10);
 		pane.setPadding(new Insets(2, 2, 2, 2));
-		scene = new Scene(pane, 800, 600);
-		btn1 = new Button();
+		scene = new Scene(pane);
+		
+		//Buttons
+		btnAdd = new Button();
+		btnDelete = new Button();
+		btnChange = new Button();
+		btnSettings = new Button();
 		
 		//Buttongruppe
-		vBox = new VBox(10);
-		vBox.setAlignment(Pos.TOP_CENTER);
-		vBox.getChildren().add(btn1);
-		pane.add(vBox, 0, 0);
+		hBtnBox = new HBox(10);
+		hBtnBox.setAlignment(Pos.TOP_LEFT);
+		hBtnBox.getChildren().addAll(btnAdd, btnChange, btnDelete);
+		pane.add(hBtnBox, 0, 1);
+		
+		//Einstellungen
+		hSettingBox = new HBox(1);
+		hSettingBox.setAlignment(Pos.TOP_RIGHT);
+		hSettingBox.getChildren().add(btnSettings);
+//		pane.add(hSettingBox, 0, 1);
 		
 		//List View
 		tView = new TableView<>();
@@ -60,7 +71,7 @@ public class MainView{
         dateCol.setMinWidth(100);
         
         tView.getColumns().addAll(nameCol, descrCol, dateCol);
-		pane.add(tView, 1, 0);
+		pane.add(tView, 0, 0);
 		
 	}
 	
@@ -77,29 +88,40 @@ public class MainView{
 		stage.setWidth(x);
 	}
 	
-	public Button getBtn1() {
-		return btn1;
+	public Button getBtnAdd() {
+		return btnAdd;
 	}
 	
-	public void setBtn1Txt(String text) {
-		btn1.setText(text);
+	public void setBtnAddTxt(String text) {
+		btnAdd.setText(text);
 	}
 	
-	public Button getBtn2() {
-		return btn2;
+	public Button getBtnChange() {
+		return btnChange;
 	}
 	
-	public void setBtn2Txt(String text) {
-		btn2.setText(text);
+	public void setBtnChangeTxt(String text) {
+		btnChange.setText(text);
+	}
+	
+	public Button getBtnDelete() {
+		return btnDelete;
+	}
+	
+	public void setBtnDeleteTxt(String text) {
+		btnDelete.setText(text);
 	}
 
 	public void show(Stage stage) {
 		stage.setResizable(true);
 		stage.setTitle(title);
 		stage.setScene(scene);
-		stage.setMaximized(true);
 		stage.show();
 		
+	}
+
+	public Labeled getBtnSetting() {
+		return btnSettings;
 	}
 	
 

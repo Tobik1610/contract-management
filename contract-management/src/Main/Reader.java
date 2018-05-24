@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,20 +11,17 @@ import model.Model;
 
 public class Reader {
 
-	public Reader(Model model) throws ClassNotFoundException {
+	public Reader(Model model) throws ClassNotFoundException, EOFException {
 
 		try {
 			FileInputStream fi = new FileInputStream(new File("contracts.txt"));
 			ObjectInputStream oi = new ObjectInputStream(fi);
 
 			// Read objects
-			while( fi.read() != -1) {
+			for(;;) {
 				Contract contract = (Contract) oi.readObject();
 				model.getContracts().add(contract);
 			}
-			
-			oi.close();
-			fi.close();
 
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
