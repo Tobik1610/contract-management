@@ -2,11 +2,13 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.Serializable;
 
 import Main.Contract;
+import Main.Main;
 
 public class Model implements Serializable {
 	
@@ -15,16 +17,19 @@ public class Model implements Serializable {
 	//Data
 	private Stage primaryStage = null;
 	private ObservableList<Contract> contracts =FXCollections.observableArrayList();
-	private double width = 1200;
-	private double heigth = 600;
+	private int selectedContractIndex;
+	private double width = 725;
+	private double heigth = 470;
 	
 	//App
 	private String title = "Vertragsverwaltung";
 	
 	//Main View
 	private String message = "Button pressed";
-	private String btn1 = "Neuer Vertrag";
-	private String btn2 = "Press Me Too!";
+	private String btnAdd = "Neuer Vertrag";
+	private String btnChange = "Ändern";
+	private String btnDelete = "Löschen";
+	private Image btnSettingIcon = new Image(Model.class.getResourceAsStream("SettingsIcon.png"), 40, 40, false, false);
 	
 	//Add View
 	private String addViewTitle = "Neuer Vertrag";
@@ -68,12 +73,12 @@ public class Model implements Serializable {
 		this.message = message;
 	}
 
-	public String getBtn1() {
-		return btn1;
+	public String getBtnAdd() {
+		return btnAdd;
 	}
 
-	public void setBtn1(String btn1) {
-		this.btn1 = btn1;
+	public void setBtnAdd(String btnAdd) {
+		this.btnAdd = btnAdd;
 	}
 
 	public Stage getPrimaryStage() {
@@ -82,14 +87,6 @@ public class Model implements Serializable {
 
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-	}
-
-	public String getBtn2() {
-		return btn2;
-	}
-
-	public void setBtn2(String btn2) {
-		this.btn2 = btn2;
 	}
 
 	public ObservableList<Contract> getContracts() {
@@ -130,5 +127,37 @@ public class Model implements Serializable {
 
 	public void setAddViewText3(String addViewText3) {
 		this.addViewText3 = addViewText3;
+	}
+
+	public String getBtnChange() {
+		return btnChange;
+	}
+
+	public void setBtnChange(String btnChange) {
+		this.btnChange = btnChange;
+	}
+
+	public String getBtnDelete() {
+		return btnDelete;
+	}
+
+	public void setBtnDelete(String btnDelete) {
+		this.btnDelete = btnDelete;
+	}
+
+	public int getSelectedContractIndex() {
+		return selectedContractIndex;
+	}
+
+	public void setSelectedContractIndex(int selectedContractIndex) {
+		this.selectedContractIndex = selectedContractIndex;
+	}
+
+	public Image getBtnSettingIcon() {
+		return btnSettingIcon;
+	}
+
+	public void setBtnSettingIcon(Image btnSettingIcon) {
+		this.btnSettingIcon = btnSettingIcon;
 	}
 }

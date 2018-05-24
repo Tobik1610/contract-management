@@ -20,7 +20,7 @@ public class Main extends Application{
 		this.model = new Model(primaryStage); 
 		
 		//Reader initialisieren
-//		new Reader(model);
+		new Reader(model);
 		
 		//Ersten Controller aufrufen
 		MainVC mainVC = new MainVC(model);
@@ -31,7 +31,7 @@ public class Main extends Application{
 	public void stop() throws Exception {
 
 		//Writer initialisieren
-//		new Writer(model);
+		new Writer(model);
 		
 		super.stop();
 	}
